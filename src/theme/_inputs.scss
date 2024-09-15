@@ -1,0 +1,71 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+mat-form-field {
+    &.custom-form-field, &.custom-form-field .mat-mdc-select{
+        font-size: .875rem;
+
+        .mat-mdc-text-field-wrapper {
+            height: 36px;
+
+          .mat-mdc-form-field-flex {
+            height: 100%;
+          }
+        }
+
+        .mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline {
+            opacity: 0;
+            transition: opacity .6s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .mat-mdc-form-field-hint-wrapper {
+            padding: 0;
+        }
+
+        .mat-mdc-form-field-infix {
+            min-height: unset;
+        }
+
+        .mdc-text-field--outlined {
+            padding: 0 .625rem;
+        }
+
+        .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+            padding: .375rem 0 0 0;
+        }
+
+        & button {
+            height: 36px !important;
+        }
+
+        .mat-mdc-form-field-icon-suffix mat-icon {
+            font-size: 1rem;
+            height: 1rem;
+            width: 1rem;
+            cursor: pointer;
+        }
+
+        .mat-datepicker-toggle {
+            & button {
+                padding: 0;
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    mat-hint.mat-mdc-form-field-hint {
+        font-size: .75rem;
+        line-height: 1.5;
+    }
+}
+
+::ng-deep {
+    .mat-mdc-select-panel mat-option.mat-mdc-option {
+        min-height: 36px !important;
+        font-size: .875rem !important;
+    }
+
+}

@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+.custom-table {
+  cursor: default;
+    //border: 1px solid var(--border-color) !important;
+    //border-radius: 4px !important;
+    //box-shadow: none !important;
+
+    tr.mat-mdc-row:hover {
+      cursor: pointer;
+      background-color: #EBE9ED;
+  }
+
+    td {
+        text-align: left;
+        vertical-align: middle;
+    }
+}
