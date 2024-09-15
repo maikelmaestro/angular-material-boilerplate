@@ -12,6 +12,8 @@ import {MatListModule} from '@angular/material/list'
 import {MatIconModule} from '@angular/material/icon'
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu'
 import {ThemeToggleComponent} from '../../shared/components/theme-toggle/theme-toggle.component'
+import {CdkPortalOutlet} from '@angular/cdk/portal'
+import {PanelService} from '../../shared/panel/panel.service'
 
 @Component({
     selector: 'app-protected-layout',
@@ -32,6 +34,7 @@ import {ThemeToggleComponent} from '../../shared/components/theme-toggle/theme-t
         MatMenu,
         MatMenuItem,
         ThemeToggleComponent,
+        CdkPortalOutlet,
     ],
     templateUrl: './protected-layout.component.html',
     styleUrl: './protected-layout.component.scss'
@@ -41,6 +44,7 @@ export class ProtectedLayoutComponent implements OnInit {
     private router: Router = inject(Router)
     private cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
     private route: ActivatedRoute = inject(ActivatedRoute)
+    public panelService: PanelService = inject(PanelService)
     routes: Routes = routes[2]?.children?.filter(r => r.path && r.path !== '**')
     actualRoute: {title: string, icon: string}
 

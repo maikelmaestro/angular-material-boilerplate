@@ -50,7 +50,7 @@
                     </button>
                     <button mat-menu-item>
                         <mat-icon class="material-symbols-outlined">logout</mat-icon>
-                        <span>Loguut</span>
+                        <span>Sign Out</span>
                     </button>
                 </mat-menu>
             </div>
@@ -62,17 +62,17 @@
         </div>
     </mat-drawer-content>
 
-<!--    <mat-drawer-->
-<!--        style="width: unset"-->
-<!--        class="h-100vh"-->
-<!--        #sidebar mode="over" position="end"-->
-<!--        [opened]="portalService.panelPortalOpened"-->
-<!--        (closed)="portalService.tryToClosePanelPortal()"-->
-<!--        [disableClose]="false"-->
-<!--    >-->
-<!--        <div>-->
-<!--            <ng-template [cdkPortalOutlet]="portalService.panelPortal | async"></ng-template>-->
-<!--        </div>-->
+    <mat-drawer
+        style="width: unset"
+        class="h-100vh"
+        #sidebar mode="over" position="end"
+        [opened]="panelService.panelPortalOpened"
+        (closed)="panelService.closePanelPortal()"
+        [disableClose]="false"
+    >
+        <div>
+            <ng-template [cdkPortalOutlet]="panelService.panelPortal | async"></ng-template>
+        </div>
 <!--    </mat-drawer>-->
     <mat-drawer
         style="width: unset"

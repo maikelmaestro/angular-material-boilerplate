@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 @use 'theme/m3-theme';
-//@use 'theme/themes';
 @use "theme/mixins/protected-component.theme";
 
 @include mat.core();
