@@ -1,32 +1,14 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
+@use 'theme/colors';
+//@use 'theme/themes';
+@use "theme/mixins/protected-component.theme";
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the theme object.
-$bulletproof-angular-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
+$theme: colors.$light-theme;
+$dark-theme: colors.$dark-theme;
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 :root {
-  @include mat.all-component-themes($bulletproof-angular-theme);
-
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -36,7 +18,6 @@ $bulletproof-angular-theme: mat.define-theme((
     background: #CCCCCC;
     border-radius: 5px;
   }
-
 }
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined");
@@ -45,13 +26,23 @@ $bulletproof-angular-theme: mat.define-theme((
 @import 'theme/table';
 @import 'theme/sidebar';
 
-// Comment out the line below if you want to use the pre-defined typography utility classes.
-// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
-// @include mat.typography-hierarchy($bulletproof-angular-theme);
+html, body {
+  height: 100%;
+}
 
-// Comment out the line below if you want to use the deprecated `color` inputs.
-// @include mat.color-variants-backwards-compatibility($bulletproof-angular-theme);
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body.light-theme {
+  @include mat.all-component-themes($theme);
+  @include protected-component.theme($theme);
+  @include mat.color-variants-backwards-compatibility($theme);
+}
+
+body.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+  @include protected-component.theme($dark-theme);
+  @include mat.color-variants-backwards-compatibility($dark-theme);
+}

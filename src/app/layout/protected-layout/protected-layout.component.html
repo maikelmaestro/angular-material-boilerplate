@@ -1,1 +1,87 @@
-<router-outlet/>
+<mat-drawer-container>
+    <mat-drawer #drawer class="sidenav"
+                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>
+            <img ngSrc="/logo.svg" priority width="16px" height="16px">
+        </mat-toolbar>
+        <mat-nav-list>
+            @for (item of routes; track $index) {
+                <a
+                    mat-list-item
+                    [routerLink]="item.path"
+                    #link="routerLinkActive"
+                    routerLinkActive
+                    [activated]="link.isActive"
+                >
+                    <mat-icon matListItemIcon class="material-symbols-outlined">{{item.data['icon']}}</mat-icon>
+                    <span>{{item.title}}</span>
+                </a>
+            }
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content #drawerContent>
+        <mat-toolbar color="primary" class="d-flex align-items-center justify-content-between w-100">
+            @if (isHandset$ | async) {
+                <button
+                    type="button"
+                    aria-label="Toggle sidenav"
+                    mat-icon-button
+                    (click)="drawer.toggle()">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+            }
+            <h1 class="d-flex align-items-center">
+                <mat-icon class="material-symbols-outlined me-1">{{actualRoute?.icon}}</mat-icon>
+                <span>{{actualRoute?.title}}</span>
+            </h1>
+            <div class="d-flex align-items-center gap-3">
+                <app-theme-toggle></app-theme-toggle>
+                <button mat-stroked-button [matMenuTriggerFor]="menu">
+                    <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+                    admin&#64;admin.com
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon class="material-symbols-outlined">person</mat-icon>
+                        <span>My Profile</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon class="material-symbols-outlined">logout</mat-icon>
+                        <span>Loguut</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-toolbar>
+        <div class="sidenav-scroll-wrapper">
+            <div class="sidenav-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-drawer-content>
+
+<!--    <mat-drawer-->
+<!--        style="width: unset"-->
+<!--        class="h-100vh"-->
+<!--        #sidebar mode="over" position="end"-->
+<!--        [opened]="portalService.panelPortalOpened"-->
+<!--        (closed)="portalService.tryToClosePanelPortal()"-->
+<!--        [disableClose]="false"-->
+<!--    >-->
+<!--        <div>-->
+<!--            <ng-template [cdkPortalOutlet]="portalService.panelPortal | async"></ng-template>-->
+<!--        </div>-->
+<!--    </mat-drawer>-->
+    <mat-drawer
+        style="width: unset"
+        class="h-100vh"
+        #sidebar mode="over" position="end"
+        [disableClose]="false"
+    >
+        <div>
+            george
+        </div>
+    </mat-drawer>
+</mat-drawer-container>

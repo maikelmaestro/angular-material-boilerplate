@@ -18,10 +18,55 @@ export const routes: Routes = [
         component: ProtectedLayoutComponent,
         // canActivate: [AuthenticationGuard],
         children: [
-            {path: 'dashboard', loadChildren: () => import('./protected/dashboard/dashboard.routes')},
-            {path: 'drag-drop', loadChildren: () => import('./protected/drag-drop/drag-drop.routes')},
-            {path: 'table', loadChildren: () => import('./protected/table/table.routes')},
-            {path: 'tree', loadChildren: () => import('./protected/tree/tree.routes')},
+            {
+                path: 'dashboard',
+                title: 'Dashboard',
+                data: {
+                    icon: 'desktop_windows',
+                    title: 'Dashboard'
+
+                },
+                loadChildren: () => import('./protected/dashboard/dashboard.routes')
+            },
+            {
+                path: 'drag-drop',
+                title: 'Drag and Drop',
+                data: {
+                    icon: 'drag_indicator',
+                    title: 'Drag and Drop'
+
+                },
+                loadChildren: () => import('./protected/drag-drop/drag-drop.routes')
+            },
+            {
+                path: 'table',
+                title: 'Table',
+                data: {
+                    icon: 'table_chart',
+                    title: 'Table'
+
+                },
+                loadChildren: () => import('./protected/table/table.routes')
+            },
+            {
+                path:'address-form',
+                title: 'Address Form',
+                data: {
+                    icon: 'home',
+                    title: 'Address Form'
+                },
+                loadChildren: () => import('./protected/address-form/address-form.routes')
+            },
+            {
+                path: 'tree',
+                title: 'Tree',
+                data: {
+                    icon: 'account_tree',
+                    title: 'Tree'
+
+                },
+                loadChildren: () => import('./protected/tree/tree.routes')
+            },
             {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
         ]
     },
