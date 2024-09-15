@@ -4,7 +4,7 @@ Welcome to the Angular Material 3 Starter project! This repository provides a ba
 
 ## Demo
 
-An online <a href="http://wrongallthetime.com" target="_blank">demo</a> is available.
+An online <a href="https://maikelmaestro.github.io/angular-material-boilerplate/" target="_blank">demo</a> is available.
 
 ## Features
 
