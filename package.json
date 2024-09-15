@@ -1,7 +1,8 @@
 {
   "name": "bulletproof-angular",
-  "version": "0.0.0",
-  "scripts": {
+  "version": "1.0.0",
+    "description": "A simple Angular material 3 starter project",
+    "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:prod": "ng serve --configuration production",

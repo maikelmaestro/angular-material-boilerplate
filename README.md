@@ -1,27 +1,40 @@
-# Angular material 3 boilerplate
+# Angular Material 3 Starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+Welcome to the Angular Material 3 Starter project! This repository provides a basic setup for building Angular applications using Angular Material 3, with a focus on modern, responsive design.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+An online <a href="http://www.wrongallthetime.com" target="_blank">demo</a> is available.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 18.2.4
+- Angular Material 3+
+- Angular CDK
+- SCSS styling
+- Basic setup with example components
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ensure you have the following software installed:
 
-## Running unit tests
+- [Node.js](https://nodejs.org/) (v18.20.3 or later recommended)
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting Started
 
-## Running end-to-end tests
+1. **Clone the repository**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   git clone https://github.com/maikelmaestro/angular-material-3-starter.git
 
-## Further help
+2. **Install dependencies**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```bash
+   cd angular-material-3-starter
+   npm install
+   
+3. **Run the application**
+
+   ```bash
+    npm start:dev
