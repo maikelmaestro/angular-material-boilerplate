@@ -1,13 +1,27 @@
 @use '@angular/material' as mat;
 @use 'theme/m3-theme';
-@use "theme/mixins/protected-component.theme";
+@use "theme/mixins/layout-component.theme";
 
 @include mat.core();
+
+mat.$theme-ignore-duplication-warnings: true;
+
 
 $theme: m3-theme.$light-theme;
 $dark-theme: m3-theme.$dark-theme;
 
 :root {
+  @include mat.all-component-themes($dark-theme);
+  @include layout-component.theme($dark-theme);
+  @include mat.color-variants-backwards-compatibility($dark-theme);
+  @include mat.all-component-typographies($dark-theme);
+
+  @media (prefers-color-scheme: light) {
+    @include mat.all-component-colors($theme);
+    @include layout-component.theme($theme);
+    @include mat.color-variants-backwards-compatibility($theme);
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -32,13 +46,13 @@ body {
 }
 
 body.light-theme {
-  @include mat.all-component-themes($theme);
-  @include protected-component.theme($theme);
+  @include mat.all-component-colors($theme);
+  @include layout-component.theme($theme);
   @include mat.color-variants-backwards-compatibility($theme);
 }
 
 body.dark-theme {
-  @include mat.all-component-themes($dark-theme);
-  @include protected-component.theme($dark-theme);
+  @include mat.all-component-colors($dark-theme);
+  @include layout-component.theme($dark-theme);
   @include mat.color-variants-backwards-compatibility($dark-theme);
 }

@@ -1,11 +1,11 @@
 import {Routes} from '@angular/router'
-import {ProtectedLayoutComponent} from './layout/protected-layout/protected-layout.component'
+import {LayoutComponent} from './layout/layout/layout.component'
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
     {
         path: '',
-        component: ProtectedLayoutComponent,
+        component: LayoutComponent,
         children: [
             {
                 path: 'dashboard',

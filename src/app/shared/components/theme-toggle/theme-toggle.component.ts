@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core'
 import {MatIconButton} from '@angular/material/button'
 import {MatIcon} from '@angular/material/icon'
 
+export enum Theme {
+    Dark = 'dark-theme',
+    Light = 'light-theme'
+}
+
 @Component({
     selector: 'app-theme-toggle',
     standalone: true,
@@ -17,10 +22,11 @@ export class ThemeToggleComponent implements OnInit {
 
     ngOnInit(): void {
         const storedTheme = localStorage.getItem('theme')
+
         if (storedTheme) {
-            this.isDarkMode = storedTheme === 'dark-theme'
+            this.isDarkMode = storedTheme === Theme.Dark
         } else {
-            this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+            this.isDarkMode = !window.matchMedia('(prefers-color-scheme: light)').matches
         }
         this.applyTheme()
     }
@@ -31,10 +37,9 @@ export class ThemeToggleComponent implements OnInit {
     }
 
     private applyTheme(): void {
-        const themeClass = this.isDarkMode ? 'dark-theme' : 'light-theme'
-        document.body.classList.remove('dark-theme', 'light-theme')
+        const themeClass = this.isDarkMode ? Theme.Dark : Theme.Light
+        document.body.classList.remove(Theme.Dark, Theme.Light)
         document.body.classList.add(themeClass)
         localStorage.setItem('theme', themeClass)
     }
-
 }

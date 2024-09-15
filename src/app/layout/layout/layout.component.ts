@@ -14,7 +14,7 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu'
 import {ThemeToggleComponent} from '../../shared/components/theme-toggle/theme-toggle.component'
 
 @Component({
-    selector: 'app-protected-layout',
+    selector: 'app-layout',
     standalone: true,
     imports: [
         RouterOutlet,
@@ -33,10 +33,10 @@ import {ThemeToggleComponent} from '../../shared/components/theme-toggle/theme-t
         MatMenuItem,
         ThemeToggleComponent,
     ],
-    templateUrl: './protected-layout.component.html',
-    styleUrl: './protected-layout.component.scss'
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.scss'
 })
-export class ProtectedLayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit {
     private breakpointObserver = inject(BreakpointObserver)
     private router: Router = inject(Router)
     private cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
