@@ -10,6 +10,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "build:dev": "ng build --configueration development",
+    "build:docs": "ng build --output-path docs --base-href /angular-material-boilerplate/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
