@@ -1,12 +1,12 @@
 @use '@angular/material' as mat;
-@use 'theme/colors';
+@use 'theme/m3-theme';
 //@use 'theme/themes';
 @use "theme/mixins/protected-component.theme";
 
 @include mat.core();
 
-$theme: colors.$light-theme;
-$dark-theme: colors.$dark-theme;
+$theme: m3-theme.$light-theme;
+$dark-theme: m3-theme.$dark-theme;
 
 :root {
   ::-webkit-scrollbar {
