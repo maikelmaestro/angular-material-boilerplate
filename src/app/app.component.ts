@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {environment} from '../environments/environment'
+import {Component} from '@angular/core'
+import {RouterOutlet} from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -10,5 +9,4 @@ import {environment} from '../environments/environment'
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = environment.apiUrl
 }

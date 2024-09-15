@@ -6,51 +6,56 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field'
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core'
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter} from '@angular/material-moment-adapter'
+import {provideHttpClient, withInterceptors} from '@angular/common/http'
+import {authInterceptor} from './core/interceptors/auth.interceptor'
+import {errorInterceptor} from './core/interceptors/error-handler.interceptor'
+import {apiUrlInterceptor} from './core/interceptors/api-url.interceptor'
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({eventCoalescing: true}),
-    provideRouter(
-      routes,
-      withPreloading(PreloadAllModules),
-      // withInMemoryScrolling({scrollPositionRestoration: 'enabled'})
-    ),
-    provideAnimationsAsync(),
-    {
-      provide:
-      MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: {
-        floatLabel: 'always',
-        appearance: 'outline',
-        subscriptSizing: 'dynamic',
-      },
-    },
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-    },
-    {
-      provide: MAT_DATE_LOCALE,
-      useValue: 'en-US',
-    },
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: {
-        parse: {
-          dateInput: 'YYYY-MM-DD',
+    providers: [
+        provideHttpClient(withInterceptors([authInterceptor, errorInterceptor, apiUrlInterceptor])),
+        provideZoneChangeDetection({eventCoalescing: true}),
+        provideRouter(
+            routes,
+            withPreloading(PreloadAllModules),
+            // withInMemoryScrolling({scrollPositionRestoration: 'enabled'})
+        ),
+        provideAnimationsAsync(),
+        {
+            provide:
+            MAT_FORM_FIELD_DEFAULT_OPTIONS,
+            useValue: {
+                floatLabel: 'always',
+                appearance: 'outline',
+                subscriptSizing: 'dynamic',
+            },
         },
-        display: {
-          dateInput: 'YYYY-MM-DD',
-          monthYearLabel: 'LLL yyyy',
-          dateA11yLabel: 'DD',
-          monthYearA11yLabel: 'LLLL yyyy',
+        {
+            provide: DateAdapter,
+            useClass: MomentDateAdapter,
         },
-      },
-    },
-    {
-      provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-      useValue: {useUtc: true}
-    },
+        {
+            provide: MAT_DATE_LOCALE,
+            useValue: 'en-US',
+        },
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: {
+                parse: {
+                    dateInput: 'YYYY-MM-DD',
+                },
+                display: {
+                    dateInput: 'YYYY-MM-DD',
+                    monthYearLabel: 'LLL yyyy',
+                    dateA11yLabel: 'DD',
+                    monthYearA11yLabel: 'LLLL yyyy',
+                },
+            },
+        },
+        {
+            provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+            useValue: {useUtc: true}
+        },
 
-  ]
+    ]
 }

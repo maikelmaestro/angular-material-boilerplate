@@ -1,0 +1,5 @@
+<div class="d-flex align-items-center justify-content-between px-4 py-3" [class]="data.background">
+    <mat-icon class="text-white me-3">{{data.icon}}</mat-icon>
+    <span>{{data.message}}</span>
+    <mat-icon (click)="snackBarRef.dismissWithAction()" class="pointer ms-3 text-white">close</mat-icon>
+</div>
