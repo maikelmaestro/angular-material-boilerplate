@@ -21,9 +21,6 @@ $dark-theme: m3-theme.$dark-theme;
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined");
 @import 'theme/custom_classes';
-@import 'theme/inputs';
-@import 'theme/table';
-@import 'theme/sidebar';
 
 html, body {
   height: 100%;

@@ -6,14 +6,11 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field'
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core'
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter} from '@angular/material-moment-adapter'
-import {provideHttpClient, withInterceptors} from '@angular/common/http'
-import {authInterceptor} from './core/interceptors/auth.interceptor'
-import {errorInterceptor} from './core/interceptors/error-handler.interceptor'
-import {apiUrlInterceptor} from './core/interceptors/api-url.interceptor'
+import {provideHttpClient} from '@angular/common/http'
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(withInterceptors([authInterceptor, errorInterceptor, apiUrlInterceptor])),
+        provideHttpClient(),
         provideZoneChangeDetection({eventCoalescing: true}),
         provideRouter(
             routes,

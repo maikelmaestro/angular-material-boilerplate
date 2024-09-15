@@ -4,7 +4,7 @@
                 [mode]="(isHandset$ | async) ? 'over' : 'side'"
                 [opened]="(isHandset$ | async) === false">
         <mat-toolbar>
-            <img ngSrc="/logo.svg" priority width="16px" height="16px">
+            <img ngSrc="/logo.svg" priority width="150" height="37">
         </mat-toolbar>
         <mat-nav-list>
             @for (item of routes; track $index) {
@@ -61,17 +61,4 @@
             </div>
         </div>
     </mat-drawer-content>
-
-    <mat-drawer
-        style="width: unset"
-        class="h-100vh"
-        #sidebar mode="over" position="end"
-        [opened]="panelService.panelPortalOpened"
-        (closed)="panelService.closePanelPortal()"
-        [disableClose]="false"
-    >
-        <div>
-            <ng-template [cdkPortalOutlet]="panelService.panelPortal | async"></ng-template>
-        </div>
-    </mat-drawer>
 </mat-drawer-container>
