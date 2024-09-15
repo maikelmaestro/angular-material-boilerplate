@@ -4,7 +4,7 @@ Welcome to the Angular Material 3 Starter project! This repository provides a ba
 
 ## Demo
 
-An online <a href="http://www.wrongallthetime.com" target="_blank">demo</a> is available.
+An online <a href="http://wrongallthetime.com" target="_blank">demo</a> is available.
 
 ## Features
 
@@ -18,7 +18,7 @@ An online <a href="http://www.wrongallthetime.com" target="_blank">demo</a> is a
 
 Ensure you have the following software installed:
 
-- [Node.js](https://nodejs.org/) (v18.20.3 or later recommended)
+- [Node.js](https://nodejs.org/) (v18.19.0 or later recommended)
 - [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
 
 ## Getting Started
